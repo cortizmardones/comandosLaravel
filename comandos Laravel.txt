@@ -1,0 +1,52 @@
+Instalar :
+
+Xampp:Apache, Mysql, PHP.
+Composer: (Gestor de dependencias)
+
+composer create-project --prefer-dist laravel/laravel NOMBRE_PROYECTO (Crear el proyecto con composer)
+
+cd /RUTA_PROYECTO (Dirigirse a la ruta del proyecto)
+
+php artisan serve (Para ejecutar el proyecto en un servidor)
+http://127.0.0.1:8000
+
+composer install (Sobre la ruta del proyecto , para cargar dependencias (Util cuando porto el proyecto de un pc a otro))
+
+.ENV (Para configurar las variables globales del proyecto)
+
+Ubicaciones:
+
+Rutas: routes\web.php
+Vistas: resources\views\ (Todas heredan de app.blade.php con @section)
+Controlador: app\http\controllers\
+Modelo: app\
+
+Migraciones: database\migrations\
+Seeder: database\seeds\
+Factorys: database\factories\
+Middleware: app\Http\Middleware\
+
+
+php artisan make:controller NOMBRE_CONTROLADOR (Para crear controladores)
+php artisan make:model NOMBRE_MODELO -m (Para crear modelos + migración)
+
+php artisan make:seeder NOMBRE_SEEDER (Crea un seeder)
+php artisan db:seed (Ejecuta los seeder) (Agregar App\User; al principio)
+
+php artisan make:auth (CREA UN LOGIN CON MIDDLEWARE INCLUIDOS)
+php artisan make middleware NOMBRE_MIDLEWARE
+
+php artisan migrate:rollback (Regrese a la ultima migracion)
+php artisan migrate:reset (Crea nuevamente todas las migraciones - recordar borrar las que existen en la BDD en la tabla migrate antes)
+php artisan migrate:reset (Invoca el metodo down() de las migraciones)
+
+php artisan migrate (Ejecuta las migraciones)
+
+(Revisar en AppServiceProvider.php boot schema::defaultStringLength(191); )
+(Agregar Iluminatte\Support\Facades\Schema; al inicio de la clase)
+
+php artisan make:factory NOMBRE_FACTORY
+
+el DATABASESEEDER ES EL QUE CONTROLA
+(Primero creo el factory con los faker , luego creo el seeder producto indicandole cuantos datos necesito y despues ejecuto el databaseseeder con el php artisan:seed)
+(Revisar el proyecto para más dudas)
